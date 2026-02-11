@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@300;400;500;600&display=swap');
+
+/* Drone Show Design System - Candelaria 2026 */
+
+@layer base {
+  :root {
+    /* Night sky theme */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 45 100% 60%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 15%;
+    --ring: 45 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom drone glow colors */
+    --drone-gold: 45 100% 60%;
+    --drone-magenta: 320 100% 60%;
+    --drone-cyan: 180 100% 50%;
+    --drone-red: 0 100% 60%;
+    --drone-green: 120 100% 50%;
+    --drone-blue: 220 100% 60%;
+    --drone-purple: 280 100% 65%;
+    --drone-orange: 30 100% 55%;
+
+    /* Gradients */
+    --gradient-night: linear-gradient(180deg, hsl(222 47% 3%) 0%, hsl(222 47% 8%) 50%, hsl(240 30% 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(30 100% 50%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(180 100% 50%) 0%, hsl(280 100% 65%) 100%);
+
+    /* Shadows and glows */
+    --glow-gold: 0 0 30px hsl(45 100% 60% / 0.6);
+    --glow-cyan: 0 0 30px hsl(180 100% 50% / 0.6);
+    --glow-magenta: 0 0 30px hsl(320 100% 60% / 0.6);
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 45 100% 60%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 30% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 45 100% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Exo 2', sans-serif;
+    background: var(--gradient-night);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+  }
+}
+
+@layer components {
+  .btn-glow {
+    @apply relative overflow-hidden transition-all duration-300;
+    box-shadow: var(--glow-gold);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 50px hsl(45 100% 60% / 0.8), 0 0 80px hsl(45 100% 60% / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .menu-item {
+    @apply px-6 py-3 rounded-lg border transition-all duration-300 cursor-pointer;
+    background: hsl(var(--card) / 0.8);
+    border-color: hsl(var(--border));
+    backdrop-filter: blur(10px);
+  }
+
+  .menu-item:hover {
+    background: hsl(var(--muted));
+    border-color: hsl(var(--primary));
+    box-shadow: var(--glow-gold);
+  }
+
+  .menu-item.active {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.2));
+    border-color: hsl(var(--primary));
+    box-shadow: var(--glow-gold);
+  }
+
+  .canvas-container {
+    @apply rounded-xl overflow-hidden;
+    box-shadow: 0 0 60px hsl(222 47% 5% / 0.8), inset 0 0 100px hsl(222 47% 3% / 0.5);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .stat-display {
+    @apply px-4 py-2 rounded-lg;
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .title-glow {
+    text-shadow: 0 0 20px hsl(45 100% 60% / 0.8), 0 0 40px hsl(45 100% 60% / 0.4);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-body {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}

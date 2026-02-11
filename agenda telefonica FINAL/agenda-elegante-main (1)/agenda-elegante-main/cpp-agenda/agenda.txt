@@ -1,0 +1,5 @@
+CONTADOR:5
+1|72024112|fausto jhon coaquira huanca|941474485|faustojhon@gmail.com|jr. 11 de octubre 322|ernesto|maruja
+3|71458748|fraklin deza|963258741|franklin@gmail.com|av. la torre 521|ernesto|maruja
+2|58744859|jorge luis coaquira|258369741||jr 11 de octubre 322|ernesto m|maruja
+4|74125896|miguel rominio aceituno rojas|987654321||||
